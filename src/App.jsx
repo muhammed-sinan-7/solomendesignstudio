@@ -1,10 +1,12 @@
 import React from 'react'
 import SolomenLanding from './components/Landing'
-
+import Navbar from './components/Navbar'
+import Hero from './components/hero'
 function App() {
   return (
     <div>
-      <SolomenLanding />
+      <Navbar />
+      <Hero />
     </div>
   )
 }
