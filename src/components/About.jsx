@@ -7,10 +7,10 @@ const AboutSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-black to-neutral-950"></div>
       
       {/* Accent Glow - Teal (Top Right) */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-100/8 rounded-full blur-[150px] pointer-events-none"></div>
       
       {/* Accent Glow - Purple (Bottom Left) */}
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gray-900/10 rounded-full blur-[150px] pointer-events-none"></div>
 
       <div className="relative z-10 container mx-auto px-6 max-w-7xl">
         
@@ -30,7 +30,7 @@ const AboutSection = () => {
           >
             The Story Behind
             <br />
-            <span className="italic bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="italic bg-gradient-to-right from-teal-400 to-purple-400 bg-clip-text text-transparent">
               The Pixels
             </span>
           </h2>
