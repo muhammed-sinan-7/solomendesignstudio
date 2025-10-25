@@ -30,7 +30,7 @@ const AboutSection = () => {
           >
             The Story Behind
             <br />
-            <span className="italic bg-gradient-to-right from-teal-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="italic bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent">
               The Pixels
             </span>
           </h2>
