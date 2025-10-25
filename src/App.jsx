@@ -1,7 +1,7 @@
 import React from 'react'
 import SolomenLanding from './components/Landing'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import HeroSection from './components/HeroSection'
 function App() {
   return (
     <div>

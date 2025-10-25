@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hero = () => {
+const HeroSection = () => {
   return (
     <section className="relative pt-40 min-h-screen bg-black text-white overflow-hidden">
       {/* Subtle gradient overlay */}
@@ -121,4 +121,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroSection;
