@@ -24,8 +24,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between px-8 py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-3xl font-bold text-white tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
-              LOGO
+            <span className="text-2xl font-bold text-white tracking-wide" style={{ fontFamily: "'Cormorant Garamond, serif" }}>
+              Solomen Design Studio
             </span>
           </div>
 
