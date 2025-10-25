@@ -1,6 +1,7 @@
 import React from "react";
-import Logo from "../assets/SDS-Logo-To-Right.png";
-import Logo2 from "../assets/SDS-Logo-To-Bottom.png";
+// import Logo from "../assets/SDS-Logo-To-Right.png";
+// import Logo2 from "../assets/SDS-Logo-To-Bottom.png";
+import About from '../assets/About.jpg'
 const AboutSection = () => {
   return (
     <section className="relative bg-black text-white py-32 md:py-40 overflow-hidden">
@@ -43,7 +44,7 @@ const AboutSection = () => {
             <div className="relative group">
               {/* Main Image Container */}
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden flex items-center justify-center">
-                <img src={Logo2} className="w-90 pb-40" alt="" srcSet="" />
+                <img src={About} className="w-130 rounded-2xl pb-30 grayscale-100" alt="" srcSet="" />
 
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
