@@ -36,7 +36,7 @@ const HeroSection = () => {
                 <span 
                   className="text-white/60 tracking-[0.3em] uppercase font-light"
                   style={{ 
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: "'TASA Explorer', serif",
                     fontSize: '0.875rem'
                   }}
                 >

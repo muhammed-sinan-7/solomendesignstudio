@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Logo from '../assets/SDS-Logo-To-Right.png'
 const AboutSection = () => {
   return (
     <section className="relative bg-black text-white py-32 md:py-40 overflow-hidden">
@@ -26,7 +26,7 @@ const AboutSection = () => {
           </div>
           <h2 
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            style={{ fontFamily: "'TASA Explorer', sans-serif" }}
           >
             The Story Behind
             <br />
@@ -44,7 +44,7 @@ const AboutSection = () => {
             <div className="relative group">
               {/* Main Image Container */}
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-neutral-800 to-neutral-900 border border-white/10">
-                {/* Placeholder - Replace with your image */}
+                <img src={Logo} alt="" srcset="" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center space-y-4">
                     <div className="text-8xl">🎨</div>
@@ -88,7 +88,7 @@ const AboutSection = () => {
               <div className="absolute -left-4 top-0 text-6xl text-teal-400/20 font-serif">"</div>
               <p 
                 className="text-2xl md:text-3xl text-white/90 leading-relaxed pl-8 italic"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                style={{ fontFamily: "'Raleway', serif" }}
               >
                 Where creativity meets strategy, and pixels become powerful stories.
               </p>
@@ -98,21 +98,21 @@ const AboutSection = () => {
             <div className="space-y-6">
               <p 
                 className="text-lg text-white/80 leading-relaxed"
-                style={{ fontFamily: "'Cormorant Garamond', serif", letterSpacing: '0.3px' }}
+                style={{ fontFamily: "'Raleway', serif", letterSpacing: '0.3px' }}
               >
                 I'm a <span className="text-teal-400 font-semibold">creative problem-solver</span> who transforms complex ideas into stunning visual experiences. With nearly a decade immersed in the world of digital design, I've mastered the delicate balance between <span className="text-purple-400 font-semibold">innovation and intuition</span>.
               </p>
 
               <p 
                 className="text-lg text-white/70 leading-relaxed"
-                style={{ fontFamily: "'Cormorant Garamond', serif", letterSpacing: '0.3px' }}
+                style={{ fontFamily: "'Raleway', serif", letterSpacing: '0.3px' }}
               >
                 From <span className="text-white/90 font-medium">mobile applications</span> to <span className="text-white/90 font-medium">web platforms</span>, I've crafted over 200 digital products that don't just exist—they <span className="italic">resonate</span>, they <span className="italic">inspire</span>, and they <span className="italic">convert</span>.
               </p>
 
               <p 
                 className="text-lg text-white/70 leading-relaxed"
-                style={{ fontFamily: "'Cormorant Garamond', serif", letterSpacing: '0.3px' }}
+                style={{ fontFamily: "'Raleway', serif", letterSpacing: '0.3px' }}
               >
                 My approach is simple: <span className="text-white/90 font-medium">listen deeply, design boldly, deliver flawlessly</span>. Every project is an opportunity to push boundaries and create something extraordinary.
               </p>
