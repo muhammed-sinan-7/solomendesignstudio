@@ -19,8 +19,8 @@ const AboutSection = () => {
         <div className="text-center mb-20">
           <div className="inline-block mb-6">
             <span
-              className="text-teal-400 text-sm tracking-[0.3em] uppercase font-light"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              className="text-white/40text-sm tracking-[0.3em] uppercase font-light"
+              style={{ fontFamily: "'Raleway', serif" }}
             >
               — About Me —
             </span>
@@ -200,70 +200,8 @@ const AboutSection = () => {
         </div>
 
         {/* Bottom - Expertise Grid (3 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-white/5">
-          {/* Expertise 1 */}
-          <div className="group relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:border-teal-400/30 transition-all duration-300 text-center">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full blur-3xl group-hover:bg-teal-500/10 transition-all duration-500"></div>
-            <div className="relative z-10">
-              <div className="text-4xl mb-4">✦</div>
-              <h3
-                className="text-xl font-semibold mb-3 text-white/95"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Brand Identity
-              </h3>
-              <p
-                className="text-white/60 text-sm leading-relaxed"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                Crafting memorable visual identities that resonate and elevate
-                brands to new heights.
-              </p>
-            </div>
-          </div>
-
-          {/* Expertise 2 */}
-          <div className="group relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:border-purple-400/30 transition-all duration-300 text-center">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all duration-500"></div>
-            <div className="relative z-10">
-              <div className="text-4xl mb-4">◈</div>
-              <h3
-                className="text-xl font-semibold mb-3 text-white/95"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                UI/UX Design
-              </h3>
-              <p
-                className="text-white/60 text-sm leading-relaxed"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                Designing intuitive interfaces where beauty meets seamless
-                functionality.
-              </p>
-            </div>
-          </div>
-
-          {/* Expertise 3 */}
-          <div className="group relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:border-teal-400/30 transition-all duration-300 text-center">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full blur-3xl group-hover:bg-teal-500/10 transition-all duration-500"></div>
-            <div className="relative z-10">
-              <div className="text-4xl mb-4">◆</div>
-              <h3
-                className="text-xl font-semibold mb-3 text-white/95"
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                Digital Products
-              </h3>
-              <p
-                className="text-white/60 text-sm leading-relaxed"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                Building end-to-end experiences from concept to launch across
-                all platforms.
-              </p>
-            </div>
-          </div>
-        </div>
+        
+        
       </div>
     </section>
   );
