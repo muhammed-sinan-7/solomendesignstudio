@@ -1,6 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Logo from '../assets/SDS-Logo-To-Bottom.png';
 
 const HeroSection = () => {
+  useEffect(() => {
+    // Add CSS animation styles to document head
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes appear {
+        from {
+          opacity: 0;
+          scale: 0.8;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          scale: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-on-scroll {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Cleanup
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <section className="relative bg-black text-white overflow-hidden" style={{ 
       minHeight: '100vh',
@@ -22,17 +56,20 @@ const HeroSection = () => {
         maxWidth: '90rem'
       }}>
         {/* Main Content Grid - Asymmetric Bento Layout */}
-        <div className="grid grid-cols-12 w-full" style={{ 
-          gap: '1.25rem',
-          maxWidth: '80rem',
-          margin: '0 auto'
-        }}>
+        <div 
+          className="grid grid-cols-12 w-full animate-on-scroll" 
+          style={{ 
+            gap: '1.25rem',
+            maxWidth: '80rem',
+            margin: '0 auto'
+          }}
+        >
           
-          {/* Large Text Block - Takes 7 columns */}
-          <div className="col-span-12 lg:col-span-7 flex flex-col justify-center" style={{ gap: '1.5rem' }}>
+          {/* Large Text Block - Full width on mobile, 7 columns on desktop */}
+          <div className="col-span-12 lg:col-span-7 flex flex-col justify-center animate-on-scroll" style={{ gap: '1.5rem' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
               {/* Eyebrow text */}
-              <div className="inline-block">
+              <div className="inline-block animate-on-scroll">
                 <span 
                   className="text-white/60 tracking-[0.3em] uppercase font-light"
                   style={{ 
@@ -46,7 +83,7 @@ const HeroSection = () => {
 
               {/* Main Headline */}
               <h1 
-                className="font-bold tracking-tight"
+                className="font-bold tracking-tight animate-on-scroll"
                 style={{ 
                   fontFamily: "'TASA Explorer', sans-serif",
                   fontSize: 'clamp(3.5rem, 5.5vw, 5.5rem)',
@@ -62,9 +99,9 @@ const HeroSection = () => {
 
               {/* Subheadline */}
               <p 
-                className="text-white/70 leading-relaxed"
+                className="text-white/70 leading-relaxed animate-on-scroll"
                 style={{ 
-                  fontFamily: "'TASA Explorer', serif", 
+                  fontFamily: "'Raleway', serif", 
                   letterSpacing: '0.3px',
                   fontSize: 'clamp(1rem, 1.4vw, 1.375rem)',
                   maxWidth: '36rem',
@@ -76,10 +113,13 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap" style={{ 
-              gap: '1rem',
-              paddingTop: '1rem'
-            }}>
+            <div 
+              className="flex flex-wrap animate-on-scroll" 
+              style={{ 
+                gap: '1rem',
+                paddingTop: '1rem'
+              }}
+            >
               <button 
                 className="group relative bg-white text-black font-semibold rounded-sm overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
@@ -90,7 +130,7 @@ const HeroSection = () => {
                 <span className="relative z-10" style={{ fontFamily: "'TASA Explorer', serif", letterSpacing: '1.5px' }}>
                   VIEW PORTFOLIO
                 </span>
-                <div className="absolute inset-0 bg-white/90 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                {/* <div className="absolute  transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div> */}
               </button>
               
               <button 
@@ -107,9 +147,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Bento Grid Cards - Takes 5 columns */}
+          {/* Bento Grid Cards - HIDDEN on mobile, visible on lg+ */}
           <div 
-            className="col-span-12 lg:col-span-5 grid grid-cols-2" 
+            className="hidden lg:grid lg:col-span-5 grid-cols-2" 
             style={{ 
               gap: '1rem',
               gridAutoRows: 'minmax(8.25rem, auto)',
@@ -119,14 +159,14 @@ const HeroSection = () => {
             
             {/* Card 1 - Stats */}
             <div 
-              className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 group"
+              className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 group animate-on-scroll"
               style={{ padding: '1.25rem' }}
             >
               <div>
                 <p 
                   className="font-bold" 
                   style={{ 
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'TASA Explorer', serif",
                     fontSize: '2.25rem'
                   }}
                 >
@@ -135,7 +175,7 @@ const HeroSection = () => {
                 <p 
                   className="text-white/60" 
                   style={{ 
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: "'TASA Explorer', serif",
                     fontSize: '0.8125rem',
                     marginTop: '0.375rem'
                   }}
@@ -146,56 +186,33 @@ const HeroSection = () => {
             </div>
 
             {/* Card 2 - Large Image */}
-            <div className="col-span-1 row-span-2 bg-gradient-to-br from-neutral-800/50 to-neutral-900/50 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-all duration-300 group relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
-              <div 
-                className="absolute z-20" 
-                style={{ 
-                  bottom: '1rem', 
-                  left: '1rem' 
-                }}
-              >
-                <p 
-                  className="text-white/90 font-semibold" 
-                  style={{ 
-                    fontFamily: "'Cormorant Garamond', serif", 
-                    letterSpacing: '1px',
-                    fontSize: '0.9375rem'
-                  }}
-                >
-                  BRANDING
-                </p>
-              </div>
+            <div className="col-span-1 row-span-2 overflow-hidden hover:border-white/20 transition-all duration-300 group relative animate-on-scroll">
+              <div className="absolute inset-0 from-black/80 via-black/20 to-transparent z-10"></div>
+              
               {/* Placeholder for image */}
-              <div className="w-full h-full bg-neutral-800 flex items-center justify-center">
-                <span 
-                  className="text-white/20" 
-                  style={{ fontSize: '3.5rem' }}
-                >
-                  ✦
-                </span>
-              </div>
+              <img src={Logo} className='w-55' alt="Logo" loading="eager" />
+              <div className="w-full h-full flex items-center justify-center"></div>
             </div>
 
             {/* Card 3 - Experience */}
             <div 
-              className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300"
+              className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 animate-on-scroll"
               style={{ padding: '1.25rem' }}
             >
               <div>
                 <p 
                   className="font-bold" 
                   style={{ 
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'TASA Explorer', serif",
                     fontSize: '2.25rem'
                   }}
                 >
-                  8+
+                  9+
                 </p>
                 <p 
                   className="text-white/60" 
                   style={{ 
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: "'TASA Explorer', serif",
                     fontSize: '0.8125rem',
                     marginTop: '0.375rem'
                   }}
@@ -205,39 +222,7 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Card 4 - Awards */}
-            <div 
-              className="col-span-2 row-span-1 bg-gradient-to-r from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex items-center justify-between hover:border-white/20 transition-all duration-300 group"
-              style={{ padding: '1.25rem' }}
-            >
-              <div>
-                <p 
-                  className="text-white/90 font-semibold" 
-                  style={{ 
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: '1.0625rem'
-                  }}
-                >
-                  Award-Winning Design
-                </p>
-                <p 
-                  className="text-white/50" 
-                  style={{ 
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: '0.8125rem',
-                    marginTop: '0.25rem'
-                  }}
-                >
-                  Recognized for creative excellence
-                </p>
-              </div>
-              <div 
-                className="group-hover:scale-110 transition-transform duration-300"
-                style={{ fontSize: '1.75rem' }}
-              >
-                ✨
-              </div>
-            </div>
+           
 
           </div>
         </div>

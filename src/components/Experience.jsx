@@ -1,10 +1,78 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 function Experience() {
+  // Create refs for each timeline item
+  const headerRef = useRef(null);
+  const item1Ref = useRef(null);
+  const item2Ref = useRef(null);
+  const item3Ref = useRef(null);
+  const item4Ref = useRef(null);
+  const item5Ref = useRef(null);
+  const skillsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  // Trigger animations every time (once: false)
+  const headerInView = useInView(headerRef, { once: false, amount: 0.3 });
+  const item1InView = useInView(item1Ref, { once: false, amount: 0.3 });
+  const item2InView = useInView(item2Ref, { once: false, amount: 0.3 });
+  const item3InView = useInView(item3Ref, { once: false, amount: 0.3 });
+  const item4InView = useInView(item4Ref, { once: false, amount: 0.3 });
+  const item5InView = useInView(item5Ref, { once: false, amount: 0.3 });
+  const skillsInView = useInView(skillsRef, { once: false, amount: 0.3 });
+  const ctaInView = useInView(ctaRef, { once: false, amount: 0.5 });
+
+  // Animation variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.4, 0.25, 1]
+      }
+    }
+  };
+
+  const slideInLeft = {
+    hidden: { opacity: 0, x: -60 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.4, 0.25, 1]
+      }
+    }
+  };
+
+  const slideInRight = {
+    hidden: { opacity: 0, x: 60 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0.25, 0.4, 0.25, 1]
+      }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
     <div>
       {/* EXPERIENCE SECTION - Professional Career Timeline */}
-      <section className="relative bg-black text-white py-32 md:py-40 overflow-hidden">
+      <section className="relative bg-black text-white py-32 overflow-hidden">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.02)_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
         
@@ -19,8 +87,14 @@ function Experience() {
 
         <div className="relative z-10 container mx-auto px-6 max-w-7xl">
           
-          {/* Header */}
-          <div className="max-w-3xl mb-20">
+          {/* Header - Animated */}
+          <motion.div 
+            ref={headerRef}
+            variants={fadeUp}
+            initial="hidden"
+            animate={headerInView ? "visible" : "hidden"}
+            className="max-w-3xl mb-20"
+          >
             <div className="inline-block mb-6">
               <span
                 className="text-neutral-400 text-sm tracking-[0.3em] uppercase font-light"
@@ -48,7 +122,7 @@ function Experience() {
             >
               From branding to digital interfaces, my journey spans diverse design disciplines across multiple organizations, creating impactful visual solutions.
             </p>
-          </div>
+          </motion.div>
 
           {/* Timeline Grid with Cards */}
           <div className="relative">
@@ -58,8 +132,16 @@ function Experience() {
             <div className="space-y-16 lg:space-y-24">
               
               {/* Timeline Item 1 - Right Side */}
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="lg:text-right lg:pr-12">
+              <motion.div 
+                ref={item1Ref}
+                className="grid lg:grid-cols-2 gap-8 items-center"
+              >
+                <motion.div 
+                  variants={slideInLeft}
+                  initial="hidden"
+                  animate={item1InView ? "visible" : "hidden"}
+                  className="lg:text-right lg:pr-12"
+                >
                   <div className="inline-block lg:float-right">
                     <span
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
@@ -89,8 +171,13 @@ function Experience() {
                       Launched my professional career focusing on brand identity and print design. Developed foundational skills in logo design, business cards, and marketing materials.
                     </p>
                   </div>
-                </div>
-                <div className="lg:pl-12">
+                </motion.div>
+                <motion.div 
+                  variants={slideInRight}
+                  initial="hidden"
+                  animate={item1InView ? "visible" : "hidden"}
+                  className="lg:pl-12"
+                >
                   <div className="relative group">
                     <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
                     <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
@@ -102,12 +189,39 @@ function Experience() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Timeline Item 2 - Left Side */}
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="lg:order-2 lg:pl-12">
+              <motion.div 
+                ref={item2Ref}
+                className="grid lg:grid-cols-2 gap-8 items-center"
+              >
+                <motion.div 
+                  variants={slideInLeft}
+                  initial="hidden"
+                  animate={item2InView ? "visible" : "hidden"}
+                  className="lg:order-1 lg:pr-12 lg:flex lg:justify-end"
+                >
+                  <div className="relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-700/30 to-neutral-800/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Social Media</span>
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Brochures</span>
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Flyers</span>
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Catalogues</span>
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Advertising</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div 
+                  variants={slideInRight}
+                  initial="hidden"
+                  animate={item2InView ? "visible" : "hidden"}
+                  className="lg:order-2 lg:pl-12"
+                >
                   <span
                     className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
                     style={{ fontFamily: "'TASA Explorer', sans-serif" }}
@@ -135,26 +249,20 @@ function Experience() {
                   >
                     Expanded expertise into advertising and social media design. Created compelling brochures, flyers, and catalogue designs for diverse clients across various industries.
                   </p>
-                </div>
-                <div className="lg:order-1 lg:pr-12 lg:flex lg:justify-end">
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-700/30 to-neutral-800/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-                    <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Social Media</span>
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Brochures</span>
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Flyers</span>
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Catalogues</span>
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Advertising</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Timeline Item 3 - Right Side */}
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="lg:text-right lg:pr-12">
+              <motion.div 
+                ref={item3Ref}
+                className="grid lg:grid-cols-2 gap-8 items-center"
+              >
+                <motion.div 
+                  variants={slideInLeft}
+                  initial="hidden"
+                  animate={item3InView ? "visible" : "hidden"}
+                  className="lg:text-right lg:pr-12"
+                >
                   <div className="inline-block lg:float-right">
                     <span
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
@@ -184,8 +292,13 @@ function Experience() {
                       Transitioned into digital product design. Specialized in UI/UX design for web and mobile applications while continuing to deliver packaging and print collateral projects.
                     </p>
                   </div>
-                </div>
-                <div className="lg:pl-12">
+                </motion.div>
+                <motion.div 
+                  variants={slideInRight}
+                  initial="hidden"
+                  animate={item3InView ? "visible" : "hidden"}
+                  className="lg:pl-12"
+                >
                   <div className="relative group">
                     <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
                     <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
@@ -197,12 +310,38 @@ function Experience() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Timeline Item 4 - Left Side */}
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="lg:order-2 lg:pl-12">
+              <motion.div 
+                ref={item4Ref}
+                className="grid lg:grid-cols-2 gap-8 items-center"
+              >
+                <motion.div 
+                  variants={slideInLeft}
+                  initial="hidden"
+                  animate={item4InView ? "visible" : "hidden"}
+                  className="lg:order-1 lg:pr-12 lg:flex lg:justify-end"
+                >
+                  <div className="relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-700/30 to-neutral-800/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Branding</span>
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Digital Media</span>
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Photography</span>
+                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Social Media</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div 
+                  variants={slideInRight}
+                  initial="hidden"
+                  animate={item4InView ? "visible" : "hidden"}
+                  className="lg:order-2 lg:pl-12"
+                >
                   <span
                     className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
                     style={{ fontFamily: "'TASA Explorer', sans-serif" }}
@@ -230,25 +369,20 @@ function Experience() {
                   >
                     Expanded internationally, working with UAE-based clients. Delivered comprehensive design solutions across branding, digital media, and photography for diverse markets.
                   </p>
-                </div>
-                <div className="lg:order-1 lg:pr-12 lg:flex lg:justify-end">
-                  <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-700/30 to-neutral-800/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-                    <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Branding</span>
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Digital Media</span>
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Photography</span>
-                        <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Social Media</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Timeline Item 5 - Right Side (Current) */}
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="lg:text-right lg:pr-12">
+              <motion.div 
+                ref={item5Ref}
+                className="grid lg:grid-cols-2 gap-8 items-center"
+              >
+                <motion.div 
+                  variants={slideInLeft}
+                  initial="hidden"
+                  animate={item5InView ? "visible" : "hidden"}
+                  className="lg:text-right lg:pr-12"
+                >
                   <div className="inline-block lg:float-right">
                     <span
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
@@ -278,8 +412,13 @@ function Experience() {
                       Currently creating cutting-edge design solutions in Dubai. Bringing together years of expertise across all design disciplines to deliver exceptional results for international clients.
                     </p>
                   </div>
-                </div>
-                <div className="lg:pl-12">
+                </motion.div>
+                <motion.div 
+                  variants={slideInRight}
+                  initial="hidden"
+                  animate={item5InView ? "visible" : "hidden"}
+                  className="lg:pl-12"
+                >
                   <div className="relative group">
                     <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
                     <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
@@ -291,21 +430,31 @@ function Experience() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
             </div>
           </div>
 
-          {/* Skills Overview Section */}
-          <div className="mt-24 pt-12 border-t border-neutral-800/50">
-            <h3 
+          {/* Skills Overview Section - Animated */}
+          <motion.div 
+            ref={skillsRef}
+            variants={staggerContainer}
+            initial="hidden"
+            animate={skillsInView ? "visible" : "hidden"}
+            className="mt-24 pt-12 border-t border-neutral-800/50"
+          >
+            <motion.h3 
+              variants={fadeUp}
               className="text-2xl md:text-3xl font-bold mb-8 text-white text-center"
               style={{ fontFamily: "'TASA Explorer', serif" }}
             >
               Design Expertise
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            </motion.h3>
+            <motion.div 
+              variants={fadeUp}
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+            >
               <div className="bg-neutral-900/30 border border-neutral-800/50 rounded-lg p-4 text-center hover:border-neutral-700/50 transition-all duration-300">
                 <p className="text-neutral-300 text-sm font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Branding</p>
               </div>
@@ -336,11 +485,17 @@ function Experience() {
               <div className="bg-neutral-900/30 border border-neutral-800/50 rounded-lg p-4 text-center hover:border-neutral-700/50 transition-all duration-300">
                 <p className="text-neutral-300 text-sm font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Photography</p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
+          {/* Bottom CTA - Animated */}
+          <motion.div 
+            ref={ctaRef}
+            variants={fadeUp}
+            initial="hidden"
+            animate={ctaInView ? "visible" : "hidden"}
+            className="text-center mt-16"
+          >
             <p
               className="text-xl text-neutral-400 mb-6"
               style={{
@@ -377,7 +532,7 @@ function Experience() {
                 />
               </svg>
             </a>
-          </div>
+          </motion.div>
 
         </div>
       </section>

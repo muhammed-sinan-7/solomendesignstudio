@@ -1,15 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 
 function Projects() {
   const [activeCategory, setActiveCategory] = useState("all");
+
+  // Refs for scroll animations
+  const headerRef = useRef(null);
+  const filterRef = useRef(null);
+  const gridRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  // Trigger animations every time (once: false)
+  const headerInView = useInView(headerRef, { once: false, amount: 0.3 });
+  const filterInView = useInView(filterRef, { once: false, amount: 0.5 });
+  const gridInView = useInView(gridRef, { once: false, amount: 0.1 });
+  const ctaInView = useInView(ctaRef, { once: false, amount: 0.3 });
+
+  // Animation variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.4, 0.25, 1]
+      }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08
+      }
+    }
+  };
 
   const categories = [
     { id: "all", label: "All Projects" },
     { id: "logos", label: "Logos" },
     { id: "brochures", label: "Brochures" },
-    // { id: "flyers", label: "Flyers" },
     { id: "billboards", label: "Billboards" },
-    // { id: "catalogue", label: "Catalogues" },
     { id: "uiux", label: "UI/UX" },
     { id: "businesscard", label: "Business Cards" },
     { id: "packaging", label: "Packaging" },
@@ -57,7 +91,7 @@ function Projects() {
   return (
     <div>
       {/* PROJECTS SECTION */}
-      <section className="relative bg-black text-white py-32 md:py-40 overflow-hidden">
+      <section className="relative bg-black text-white py-20 overflow-hidden">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.02)_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
         
@@ -69,8 +103,14 @@ function Projects() {
 
         <div className="relative z-10 container mx-auto px-6 max-w-7xl">
           
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          {/* Header - Animated */}
+          <motion.div 
+            ref={headerRef}
+            variants={fadeUp}
+            initial="hidden"
+            animate={headerInView ? "visible" : "hidden"}
+            className="text-center max-w-3xl mx-auto mb-16"
+          >
             <div className="inline-block mb-6">
               <span
                 className="text-neutral-400 text-sm tracking-[0.3em] uppercase font-light"
@@ -98,10 +138,16 @@ function Projects() {
             >
               Explore my diverse portfolio spanning branding, digital design, and print media
             </p>
-          </div>
+          </motion.div>
 
-          {/* Category Filter Buttons */}
-          <div className="mb-12">
+          {/* Category Filter Buttons - Animated */}
+          <motion.div 
+            ref={filterRef}
+            variants={fadeUp}
+            initial="hidden"
+            animate={filterInView ? "visible" : "hidden"}
+            className="mb-12"
+          >
             <div className="flex flex-wrap justify-center gap-3">
               {categories.map((category) => (
                 <button
@@ -118,65 +164,78 @@ function Projects() {
                 </button>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Projects Grid with Shuffle Animation */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-            {filteredProjects.slice(0, 10).map((project, index) => (
-              <div
-                key={`${project.id}-${activeCategory}`}
-                className="group relative"
-                style={{
-                  animation: `shuffleIn 0.5s ease-out ${index * 0.05}s backwards`,
-                }}
-              >
-                {/* Project Card - Now wrapped in link */}
-                <a 
-                  href={project.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block relative overflow-hidden rounded-xl bg-neutral-900/30 border border-neutral-800/50 hover:border-neutral-700/50 transition-all duration-300 cursor-pointer"
+          {/* Projects Grid with Layout Animation */}
+          <motion.div 
+            ref={gridRef}
+            variants={staggerContainer}
+            initial="hidden"
+            animate={gridInView ? "visible" : "hidden"}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6"
+          >
+            <AnimatePresence mode="wait">
+              {filteredProjects.slice(0, 10).map((project) => (
+                <motion.div
+                  key={project.id}
+                  layout
+                  variants={fadeUp}
+                  initial="hidden"
+                  animate="visible"
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{
+                    layout: { duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }
+                  }}
+                  className="group relative"
                 >
-                  {/* Image Container */}
-                  <div className="relative aspect-square overflow-hidden bg-neutral-900">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    
-                    {/* Overlay on Hover */}
-                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span 
-                        className="text-white text-xs tracking-wider uppercase"
-                        style={{ fontFamily: "'Raleway', sans-serif" }}
-                      >
-                        View Project
-                      </span>
+                  {/* Project Card */}
+                  <a 
+                    href={project.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block relative overflow-hidden rounded-xl bg-neutral-900/30 border border-neutral-800/50 hover:border-neutral-700/50 transition-all duration-300 cursor-pointer"
+                  >
+                    {/* Image Container */}
+                    <div className="relative aspect-square overflow-hidden bg-neutral-900">
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      
+                      {/* Overlay on Hover */}
+                      <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span 
+                          className="text-white text-xs tracking-wider uppercase"
+                          style={{ fontFamily: "'Raleway', sans-serif" }}
+                        >
+                          View Project
+                        </span>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Project Info */}
-                  <div className="p-3">
-                    <h3
-                      className="text-sm font-bold text-white group-hover:text-neutral-200 transition-colors duration-300 line-clamp-1"
-                      style={{ fontFamily: "'TASA Explorer', serif" }}
-                    >
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center justify-between mt-1">
-                      <span
-                        className="text-neutral-500 text-xs"
-                        style={{ fontFamily: "'Raleway', sans-serif" }}
+                    {/* Project Info */}
+                    <div className="p-3">
+                      <h3
+                        className="text-sm font-bold text-white group-hover:text-neutral-200 transition-colors duration-300 line-clamp-1"
+                        style={{ fontFamily: "'TASA Explorer', serif" }}
                       >
-                        {project.year}
-                      </span>
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center justify-between mt-1">
+                        <span
+                          className="text-neutral-500 text-xs"
+                          style={{ fontFamily: "'Raleway', sans-serif" }}
+                        >
+                          {project.year}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </div>
-            ))}
-          </div>
+                  </a>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
 
           {/* Empty State */}
           {filteredProjects.length === 0 && (
@@ -190,8 +249,14 @@ function Projects() {
             </div>
           )}
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-20 pt-12 border-t border-neutral-800/50">
+          {/* Bottom CTA - Animated */}
+          <motion.div 
+            ref={ctaRef}
+            variants={fadeUp}
+            initial="hidden"
+            animate={ctaInView ? "visible" : "hidden"}
+            className="text-center mt-20 pt-12 border-t border-neutral-800/50"
+          >
             <p
               className="text-xl text-neutral-400 mb-6"
               style={{
@@ -202,7 +267,7 @@ function Projects() {
               Want to see more work or discuss a project?
             </p>
             <a
-              href="https://www.behance.net/yourusername"
+              href="https://www.behance.net/SULAIMANKUTTASSERI"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-neutral-800 to-neutral-700 border-2 border-neutral-700 rounded-full text-white hover:border-neutral-600 hover:scale-105 transition-all duration-300 group"
@@ -214,7 +279,7 @@ function Projects() {
                   letterSpacing: "1.5px",
                 }}
               >
-                <a href="https://www.behance.net/SULAIMANKUTTASSERI">View My All Works</a>
+                View My All Works
               </span>
               <svg
                 className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300"
@@ -230,27 +295,13 @@ function Projects() {
                 />
               </svg>
             </a>
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* Add this CSS to your global styles or in a style tag */}
+      {/* CSS Styles */}
       <style jsx>{`
-        @keyframes shuffleIn {
-          0% {
-            opacity: 0;
-            transform: scale(0.8) rotate(-5deg) translateY(20px);
-          }
-          50% {
-            transform: scale(1.05) rotate(2deg);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1) rotate(0deg) translateY(0);
-          }
-        }
-
         .line-clamp-1 {
           display: -webkit-box;
           -webkit-line-clamp: 1;

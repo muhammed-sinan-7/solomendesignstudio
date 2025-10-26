@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 function Service() {
+  // Create refs for each service item
+  const headerRef = useRef(null);
+  const service1Ref = useRef(null);
+  const service2Ref = useRef(null);
+  const service3Ref = useRef(null);
+  const service4Ref = useRef(null);
+  const ctaRef = useRef(null);
+
+  // Set once: false to trigger animation every time element enters viewport
+  const headerInView = useInView(headerRef, { once: false, amount: 0.3 });
+  const service1InView = useInView(service1Ref, { once: false, amount: 0.3 });
+  const service2InView = useInView(service2Ref, { once: false, amount: 0.3 });
+  const service3InView = useInView(service3Ref, { once: false, amount: 0.3 });
+  const service4InView = useInView(service4Ref, { once: false, amount: 0.3 });
+  const ctaInView = useInView(ctaRef, { once: false, amount: 0.3 });
+
+  // Simple fade up animation - only upward motion
+  const fadeUp = {
+    hidden: { 
+      opacity: 0, 
+      y: 50 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.4, 0.25, 1]
+      }
+    }
+  };
+
   return (
     <div>
       {/* SERVICES SECTION - Dark Minimalist Layout */}
-      <section className="relative bg-black text-whitemd:py-30 overflow-hidden">
+      <section className="relative bg-black text-white md:py-20 overflow-hidden">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.03)_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
 
@@ -12,8 +45,14 @@ function Service() {
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-black to-neutral-950"></div>
 
         <div className="relative z-10 container mx-auto px-6 max-w-7xl">
-          {/* Header */}
-          <div className="max-w-4xl mb-24">
+          {/* Header - Animated */}
+          <motion.div 
+            ref={headerRef}
+            variants={fadeUp}
+            initial="hidden"
+            animate={headerInView ? "visible" : "hidden"}
+            className="max-w-4xl mb-24"
+          >
             <div className="inline-block mb-6">
               <span
                 className="text-white/40 text-sm tracking-[0.3em] uppercase font-light"
@@ -38,12 +77,18 @@ function Service() {
               Specialized design services focused on creating impactful digital
               experiences that drive results and elevate brands.
             </p>
-          </div>
+          </motion.div>
 
           {/* Services List - Stacked Layout */}
           <div className="space-y-6">
-            {/* Service Item 1 */}
-            <div className="group">
+            {/* Service Item 1 - Animated */}
+            <motion.div 
+              ref={service1Ref}
+              variants={fadeUp}
+              initial="hidden"
+              animate={service1InView ? "visible" : "hidden"}
+              className="group"
+            >
               <div className="relative border-t border-white/10 pt-8 pb-8 hover:border-white/30 transition-all duration-500">
                 <div className="grid lg:grid-cols-12 gap-8 items-start">
                   {/* Number */}
@@ -145,10 +190,16 @@ function Service() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Service Item 2 */}
-            <div className="group">
+            {/* Service Item 2 - Animated */}
+            <motion.div 
+              ref={service2Ref}
+              variants={fadeUp}
+              initial="hidden"
+              animate={service2InView ? "visible" : "hidden"}
+              className="group"
+            >
               <div className="relative border-t border-white/10 pt-8 pb-8 hover:border-white/30 transition-all duration-500">
                 <div className="grid lg:grid-cols-12 gap-8 items-start">
                   {/* Number */}
@@ -206,7 +257,7 @@ function Service() {
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
-                          Web Application Interfaces 
+                          Web Application Interfaces
                         </span>
                         <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
                         <span
@@ -216,18 +267,20 @@ function Service() {
                           Expert
                         </span>
                       </div>
-                      
-                    
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            
-
-            {/* Service Item 4 */}
-            <div className="group">
+            {/* Service Item 3 - Animated */}
+            <motion.div 
+              ref={service3Ref}
+              variants={fadeUp}
+              initial="hidden"
+              animate={service3InView ? "visible" : "hidden"}
+              className="group"
+            >
               <div className="relative border-t border-white/10 pt-8 pb-8 hover:border-white/30 transition-all duration-500">
                 <div className="grid lg:grid-cols-12 gap-8 items-start">
                   {/* Number */}
@@ -329,10 +382,16 @@ function Service() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Service Item 5 */}
-            <div className="group">
+            {/* Service Item 4 - Animated */}
+            <motion.div 
+              ref={service4Ref}
+              variants={fadeUp}
+              initial="hidden"
+              animate={service4InView ? "visible" : "hidden"}
+              className="group"
+            >
               <div className="relative border-t border-white/10 border-b pt-8 pb-8 hover:border-white/30 transition-all duration-500">
                 <div className="grid lg:grid-cols-12 gap-8 items-start">
                   {/* Number */}
@@ -433,11 +492,17 @@ function Service() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="mt-10 pb-15 pt-12  border-white/5">
+          {/* Bottom CTA - Animated */}
+          <motion.div 
+            ref={ctaRef}
+            variants={fadeUp}
+            initial="hidden"
+            animate={ctaInView ? "visible" : "hidden"}
+            className="mt-10 pb-15 pt-12 border-white/5"
+          >
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <div className="max-w-xl">
                 <p
@@ -482,7 +547,7 @@ function Service() {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
