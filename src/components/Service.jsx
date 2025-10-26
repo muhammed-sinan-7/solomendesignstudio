@@ -206,7 +206,7 @@ function Service() {
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
-                          Web Application Interfaces
+                          Web Application Interfaces 
                         </span>
                         <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
                         <span
@@ -216,36 +216,8 @@ function Service() {
                           Expert
                         </span>
                       </div>
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
-                        <span
-                          className="text-white/60 text-sm"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Design Systems & Components
-                        </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between py-2">
-                        <span
-                          className="text-white/60 text-sm"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Prototyping & User Testing
-                        </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Advanced
-                        </span>
-                      </div>
+                      
+                    
                     </div>
                   </div>
                 </div>

@@ -118,17 +118,7 @@ const AboutSection = () => {
                   letterSpacing: "0.3px",
                 }}
               >
-                I'm a{" "}
-                <span className="text-teal-400 font-semibold">
-                  creative problem-solver
-                </span>{" "}
-                who transforms complex ideas into stunning visual experiences.
-                With nearly a decade immersed in the world of digital design,
-                I've mastered the delicate balance between{" "}
-                <span className="text-purple-400 font-semibold">
-                  innovation and intuition
-                </span>
-                .
+                With over 8 years of experience in crafting visually stunning designs, Solomen Design Studio is your one-stop-shop for all your branding needs. From logos that pop to social media graphics that spark conversations, our team of experts excels in bringing your vision to life.
               </p>
 
               <p
@@ -138,16 +128,7 @@ const AboutSection = () => {
                   letterSpacing: "0.3px",
                 }}
               >
-                From{" "}
-                <span className="text-white/90 font-medium">
-                  mobile applications
-                </span>{" "}
-                to{" "}
-                <span className="text-white/90 font-medium">web platforms</span>
-                , I've crafted over 200 digital products that don't just
-                exist—they <span className="italic">resonate</span>, they{" "}
-                <span className="italic">inspire</span>, and they{" "}
-                <span className="italic">convert</span>.
+                We breathe life into brands through thoughtful UI design, captivating print collaterals, and packaging that stands out.
               </p>
 
               <p
@@ -157,12 +138,7 @@ const AboutSection = () => {
                   letterSpacing: "0.3px",
                 }}
               >
-                My approach is simple:{" "}
-                <span className="text-white/90 font-medium">
-                  listen deeply, design boldly, deliver flawlessly
-                </span>
-                . Every project is an opportunity to push boundaries and create
-                something extraordinary.
+                Whether it's a business card that makes a statement or a catalogue that tells a story, our designs are tailored to elevate your business and leave a lasting impression. Let us help you shine brighter - partner with us to illuminate your brand!
               </p>
             </div>
 
@@ -175,7 +151,7 @@ const AboutSection = () => {
                 <span
                   className="font-semibold tracking-wide"
                   style={{
-                    fontFamily: "'Cormorant Garamond', serif",
+                    fontFamily: "'Raleway', serif",
                     letterSpacing: "1.5px",
                   }}
                 >

@@ -63,7 +63,7 @@ function Experience() {
                   <div className="inline-block lg:float-right">
                     <span
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
-                      style={{ fontFamily: "'Raleway', sans-serif" }}
+                      style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                     >
                       2015 - 2016
                     </span>
@@ -110,7 +110,7 @@ function Experience() {
                 <div className="lg:order-2 lg:pl-12">
                   <span
                     className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
-                    style={{ fontFamily: "'Raleway', sans-serif" }}
+                    style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                   >
                     2016 - 2018
                   </span>
@@ -158,7 +158,7 @@ function Experience() {
                   <div className="inline-block lg:float-right">
                     <span
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
-                      style={{ fontFamily: "'Raleway', sans-serif" }}
+                      style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                     >
                       2018 - 2020
                     </span>
@@ -205,7 +205,7 @@ function Experience() {
                 <div className="lg:order-2 lg:pl-12">
                   <span
                     className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
-                    style={{ fontFamily: "'Raleway', sans-serif" }}
+                    style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                   >
                     2020 - 2025
                   </span>
@@ -252,7 +252,7 @@ function Experience() {
                   <div className="inline-block lg:float-right">
                     <span
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
-                      style={{ fontFamily: "'Raleway', sans-serif" }}
+                      style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                     >
                       2025 - Present
                     </span>
