@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
+
 function Service() {
   // Create refs for each service item
   const headerRef = useRef(null);
@@ -10,6 +11,7 @@ function Service() {
   const service4Ref = useRef(null);
   const ctaRef = useRef(null);
 
+
   // Set once: false to trigger animation every time element enters viewport
   const headerInView = useInView(headerRef, { once: false, amount: 0.3 });
   const service1InView = useInView(service1Ref, { once: false, amount: 0.3 });
@@ -18,14 +20,15 @@ function Service() {
   const service4InView = useInView(service4Ref, { once: false, amount: 0.3 });
   const ctaInView = useInView(ctaRef, { once: false, amount: 0.3 });
 
+
   // Simple fade up animation - only upward motion
   const fadeUp = {
-    hidden: { 
-      opacity: 0, 
-      y: 50 
+    hidden: {
+      opacity: 0,
+      y: 50
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
@@ -34,6 +37,7 @@ function Service() {
     }
   };
 
+
   return (
     <div>
       {/* SERVICES SECTION - Dark Minimalist Layout */}
@@ -41,12 +45,14 @@ function Service() {
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.03)_1px,_transparent_1px)] bg-[size:24px_24px]"></div>
 
+
         {/* Subtle Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-black to-neutral-950"></div>
 
+
         <div className="relative z-10 container mx-auto px-6 max-w-7xl">
           {/* Header - Animated */}
-          <motion.div 
+          <motion.div
             ref={headerRef}
             variants={fadeUp}
             initial="hidden"
@@ -79,10 +85,11 @@ function Service() {
             </p>
           </motion.div>
 
+
           {/* Services List - Stacked Layout */}
           <div className="space-y-6">
             {/* Service Item 1 - Animated */}
-            <motion.div 
+            <motion.div
               ref={service1Ref}
               variants={fadeUp}
               initial="hidden"
@@ -100,6 +107,7 @@ function Service() {
                       01
                     </span>
                   </div>
+
 
                   {/* Title & Description */}
                   <div className="lg:col-span-6">
@@ -123,67 +131,40 @@ function Service() {
                     </p>
                   </div>
 
-                  {/* Capabilities */}
+
+                  {/* Capabilities - Right Aligned */}
                   <div className="lg:col-span-5">
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                    <div className="space-y-3 text-right">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Logo Design & Wordmarks
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Brand Guidelines & Systems
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Visual Identity Systems
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2">
+                      <div className="py-2">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Stationery & Collateral
-                        </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Advanced
                         </span>
                       </div>
                     </div>
@@ -192,8 +173,9 @@ function Service() {
               </div>
             </motion.div>
 
+
             {/* Service Item 2 - Animated */}
-            <motion.div 
+            <motion.div
               ref={service2Ref}
               variants={fadeUp}
               initial="hidden"
@@ -211,6 +193,7 @@ function Service() {
                       02
                     </span>
                   </div>
+
 
                   {/* Title & Description */}
                   <div className="lg:col-span-6">
@@ -234,37 +217,24 @@ function Service() {
                     </p>
                   </div>
 
-                  {/* Capabilities */}
+
+                  {/* Capabilities - Right Aligned */}
                   <div className="lg:col-span-5">
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                    <div className="space-y-3 text-right">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Mobile App Design (iOS/Android)
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                      <div className="py-2">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
-                          Web Application Interfaces
-                        </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
+                          Website Interface Design
                         </span>
                       </div>
                     </div>
@@ -273,8 +243,9 @@ function Service() {
               </div>
             </motion.div>
 
+
             {/* Service Item 3 - Animated */}
-            <motion.div 
+            <motion.div
               ref={service3Ref}
               variants={fadeUp}
               initial="hidden"
@@ -292,6 +263,7 @@ function Service() {
                       03
                     </span>
                   </div>
+
 
                   {/* Title & Description */}
                   <div className="lg:col-span-6">
@@ -315,67 +287,40 @@ function Service() {
                     </p>
                   </div>
 
-                  {/* Capabilities */}
+
+                  {/* Capabilities - Right Aligned */}
                   <div className="lg:col-span-5">
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                    <div className="space-y-3 text-right">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Marketing & Advertising Materials
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Social Media Graphics
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Presentation Design
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Advanced
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2">
+                      <div className="py-2">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Print & Packaging Design
-                        </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Advanced
                         </span>
                       </div>
                     </div>
@@ -384,8 +329,9 @@ function Service() {
               </div>
             </motion.div>
 
+
             {/* Service Item 4 - Animated */}
-            <motion.div 
+            <motion.div
               ref={service4Ref}
               variants={fadeUp}
               initial="hidden"
@@ -403,6 +349,7 @@ function Service() {
                       04
                     </span>
                   </div>
+
 
                   {/* Title & Description */}
                   <div className="lg:col-span-6">
@@ -425,67 +372,40 @@ function Service() {
                     </p>
                   </div>
 
-                  {/* Capabilities */}
+
+                  {/* Capabilities - Right Aligned */}
                   <div className="lg:col-span-5">
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                    <div className="space-y-3 text-right">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Design Consulting & Audits
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Brand Strategy & Positioning
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Advanced
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2 border-b border-white/5">
+                      <div className="py-2 border-b border-white/5">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           Creative Direction
                         </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Expert
-                        </span>
                       </div>
-                      <div className="flex items-center justify-between py-2">
+                      <div className="py-2">
                         <span
                           className="text-white/60 text-sm"
                           style={{ fontFamily: "'Raleway', sans-serif" }}
                         >
                           AI-Powered Design Workflows
-                        </span>
-                        <div className="h-[1px] flex-1 mx-4 bg-white/5"></div>
-                        <span
-                          className="text-white/30 text-xs"
-                          style={{ fontFamily: "'Raleway', sans-serif" }}
-                        >
-                          Advanced
                         </span>
                       </div>
                     </div>
@@ -495,8 +415,9 @@ function Service() {
             </motion.div>
           </div>
 
+
           {/* Bottom CTA - Animated */}
-          <motion.div 
+          <motion.div
             ref={ctaRef}
             variants={fadeUp}
             initial="hidden"
@@ -553,5 +474,6 @@ function Service() {
     </div>
   );
 }
+
 
 export default Service;

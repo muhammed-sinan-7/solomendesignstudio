@@ -3,7 +3,6 @@ import Logo from '../assets/SDS-Logo-To-Bottom.png';
 
 const HeroSection = () => {
   useEffect(() => {
-    // Add CSS animation styles to document head
     const style = document.createElement('style');
     style.textContent = `
       @keyframes appear {
@@ -29,50 +28,50 @@ const HeroSection = () => {
     `;
     document.head.appendChild(style);
 
-    // Cleanup
     return () => {
       document.head.removeChild(style);
     };
   }, []);
 
+  // Scroll handler function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <section className="relative bg-black text-white overflow-hidden" style={{ 
+    <section className="relative bg-black text-white overflow-hidden" style={{
       minHeight: '100vh',
       paddingTop: '8rem',
       display: 'flex',
       flexDirection: 'column'
-    }}>
-      {/* Subtle gradient overlay */}
+    }} id="home">
       <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-950"></div>
-      
-      {/* Noise texture for depth */}
       <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")' }}></div>
 
-      <div className="relative z-10 container mx-auto flex-1 flex items-center" style={{ 
+      <div className="relative z-10 container mx-auto flex-1 flex items-center" style={{
         paddingLeft: '1.5rem',
         paddingRight: '1.5rem',
         paddingTop: '1rem',
         paddingBottom: '2rem',
         maxWidth: '90rem'
       }}>
-        {/* Main Content Grid - Asymmetric Bento Layout */}
-        <div 
-          className="grid grid-cols-12 w-full animate-on-scroll" 
-          style={{ 
+        <div
+          className="grid grid-cols-12 w-full animate-on-scroll"
+          style={{
             gap: '1.25rem',
             maxWidth: '80rem',
             margin: '0 auto'
           }}
         >
-          
-          {/* Large Text Block - Full width on mobile, 7 columns on desktop */}
-          <div className="col-span-12 lg:col-span-7 flex flex-col justify-center animate-on-scroll" style={{ gap: '1.5rem' }}>
+          <div className="col-span-12 lg:col-span-7 flex flex-col justify-center " style={{ gap: '1.5rem', alignItems: 'flex-start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-              {/* Eyebrow text */}
               <div className="inline-block animate-on-scroll">
-                <span 
+                <span
                   className="text-white/60 tracking-[0.3em] uppercase font-light"
-                  style={{ 
+                  style={{
                     fontFamily: "'TASA Explorer', serif",
                     fontSize: '0.875rem'
                   }}
@@ -81,10 +80,9 @@ const HeroSection = () => {
                 </span>
               </div>
 
-              {/* Main Headline */}
-              <h1 
-                className="font-bold tracking-tight animate-on-scroll"
-                style={{ 
+              <h1
+                className="font-bold tracking-tight "
+                style={{
                   fontFamily: "'TASA Explorer', sans-serif",
                   fontSize: 'clamp(3.5rem, 5.5vw, 5.5rem)',
                   lineHeight: '0.99'
@@ -97,11 +95,10 @@ const HeroSection = () => {
                 Experiences
               </h1>
 
-              {/* Subheadline */}
-              <p 
-                className="text-white/70 leading-relaxed animate-on-scroll"
-                style={{ 
-                  fontFamily: "'Raleway', serif", 
+              <p
+                className="text-white/70 leading-relaxed "
+                style={{
+                  fontFamily: "'Raleway', serif",
                   letterSpacing: '0.3px',
                   fontSize: 'clamp(1rem, 1.4vw, 1.375rem)',
                   maxWidth: '36rem',
@@ -112,29 +109,31 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* CTA Buttons */}
-            <div 
-              className="flex flex-wrap animate-on-scroll" 
-              style={{ 
+            {/* CTA Buttons with navigation */}
+            <div
+              className="flex flex-wrap "
+              style={{
                 gap: '1rem',
                 paddingTop: '1rem'
               }}
             >
-              <button 
-                className="group relative bg-white text-black font-semibold rounded-sm overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              <button
+                onClick={() => scrollToSection('projects')}
+                className="relative text-black font-semibold rounded-sm overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                 style={{
                   padding: '0.875rem 1.75rem',
-                  fontSize: '0.875rem'
+                  fontSize: '0.875rem',
+                  backgroundColor: 'white'
                 }}
               >
                 <span className="relative z-10" style={{ fontFamily: "'TASA Explorer', serif", letterSpacing: '1.5px' }}>
                   VIEW PORTFOLIO
                 </span>
-                {/* <div className="absolute  transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div> */}
               </button>
-              
-              <button 
-                className="border border-white/30 text-white font-semibold rounded-sm backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="border border-white/30 text-white font-semibold rounded-sm backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300 cursor-pointer"
                 style={{
                   padding: '0.875rem 1.75rem',
                   fontSize: '0.875rem'
@@ -147,34 +146,32 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Bento Grid Cards - HIDDEN on mobile, visible on lg+ */}
-          <div 
-            className="hidden lg:grid lg:col-span-5 grid-cols-2" 
-            style={{ 
+          {/* Bento Grid Cards */}
+          <div
+            className="hidden lg:grid lg:col-span-5 grid-cols-2"
+            style={{
               gap: '1rem',
               gridAutoRows: 'minmax(8.25rem, auto)',
               alignContent: 'center'
             }}
           >
-            
-            {/* Card 1 - Stats */}
-            <div 
+            <div
               className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 group animate-on-scroll"
               style={{ padding: '1.25rem' }}
             >
               <div>
-                <p 
-                  className="font-bold" 
-                  style={{ 
+                <p
+                  className="font-bold"
+                  style={{
                     fontFamily: "'TASA Explorer', serif",
                     fontSize: '2.25rem'
                   }}
                 >
                   150+
                 </p>
-                <p 
-                  className="text-white/60" 
-                  style={{ 
+                <p
+                  className="text-white/60"
+                  style={{
                     fontFamily: "'TASA Explorer', serif",
                     fontSize: '0.8125rem',
                     marginTop: '0.375rem'
@@ -185,33 +182,29 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Card 2 - Large Image */}
             <div className="col-span-1 row-span-2 overflow-hidden hover:border-white/20 transition-all duration-300 group relative animate-on-scroll">
               <div className="absolute inset-0 from-black/80 via-black/20 to-transparent z-10"></div>
-              
-              {/* Placeholder for image */}
               <img src={Logo} className='w-55' alt="Logo" loading="eager" />
               <div className="w-full h-full flex items-center justify-center"></div>
             </div>
 
-            {/* Card 3 - Experience */}
-            <div 
+            <div
               className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 animate-on-scroll"
               style={{ padding: '1.25rem' }}
             >
               <div>
-                <p 
-                  className="font-bold" 
-                  style={{ 
+                <p
+                  className="font-bold"
+                  style={{
                     fontFamily: "'TASA Explorer', serif",
                     fontSize: '2.25rem'
                   }}
                 >
                   9+
                 </p>
-                <p 
-                  className="text-white/60" 
-                  style={{ 
+                <p
+                  className="text-white/60"
+                  style={{
                     fontFamily: "'TASA Explorer', serif",
                     fontSize: '0.8125rem',
                     marginTop: '0.375rem'
@@ -221,38 +214,33 @@ const HeroSection = () => {
                 </p>
               </div>
             </div>
-
-           
-
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div 
+      <div
         className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce"
-        style={{ 
+        style={{
           bottom: '2rem',
           gap: '0.5rem'
         }}
       >
-        <span 
-          className="text-white/40 tracking-widest" 
-          style={{ 
+        <span
+          className="text-white/40 tracking-widest"
+          style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: '0.6875rem'
           }}
         >
           SCROLL
         </span>
-        <div 
+        <div
           className="w-[1px] bg-gradient-to-b from-white/40 to-transparent"
           style={{ height: '2.75rem' }}
         ></div>
       </div>
 
-      {/* Decorative Elements */}
-      <div 
+      <div
         className="absolute top-1/4 bg-white/5 rounded-full blur-[100px] pointer-events-none"
         style={{
           right: '2.5rem',
@@ -260,7 +248,7 @@ const HeroSection = () => {
           height: '18rem'
         }}
       ></div>
-      <div 
+      <div
         className="absolute bottom-1/4 bg-white/[0.03] rounded-full blur-[120px] pointer-events-none"
         style={{
           left: '2.5rem',

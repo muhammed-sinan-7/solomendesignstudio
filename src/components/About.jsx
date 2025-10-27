@@ -149,7 +149,7 @@ const AboutSection = () => {
             {/* CTA Link */}
             <div className="pt-2 sm:pt-4">
               <a
-                href="#work"
+                href="#projects"
                 className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-teal-500/20 to-purple-500/20 border border-teal-400/30 rounded-full text-white hover:border-teal-400/60 transition-all duration-300 group text-sm sm:text-base"
               >
                 <span
