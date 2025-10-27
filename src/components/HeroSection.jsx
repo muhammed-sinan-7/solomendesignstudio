@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Logo from '../assets/SDS-Logo-To-Bottom.png';
 
+
 const HeroSection = () => {
   useEffect(() => {
     const style = document.createElement('style');
@@ -18,20 +19,30 @@ const HeroSection = () => {
         }
       }
 
+
       .animate-on-scroll {
         animation: appear linear;
         animation-timeline: view();
         animation-range: entry 0% cover 40%;
         will-change: transform, opacity;
         backface-visibility: hidden;
+        transform: translateZ(0);
+      }
+      
+      /* GPU Acceleration for smooth 60fps */
+      .gpu-boost {
+        transform: translateZ(0);
+        will-change: transform;
       }
     `;
     document.head.appendChild(style);
+
 
     return () => {
       document.head.removeChild(style);
     };
   }, []);
+
 
   // Scroll handler function
   const scrollToSection = (sectionId) => {
@@ -41,17 +52,19 @@ const HeroSection = () => {
     }
   };
 
+
   return (
-    <section className="relative bg-black text-white overflow-hidden" style={{
+    <section className="relative bg-black text-white overflow-hidden gpu-boost" style={{
       minHeight: '100vh',
       paddingTop: '8rem',
       display: 'flex',
       flexDirection: 'column'
     }} id="home">
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-950"></div>
-      <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")' }}></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-neutral-950 gpu-boost"></div>
+      <div className="absolute inset-0 opacity-[0.015] gpu-boost" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")' }}></div>
 
-      <div className="relative z-10 container mx-auto flex-1 flex items-center" style={{
+
+      <div className="relative z-10 container mx-auto flex-1 flex items-center gpu-boost" style={{
         paddingLeft: '1.5rem',
         paddingRight: '1.5rem',
         paddingTop: '1rem',
@@ -66,7 +79,7 @@ const HeroSection = () => {
             margin: '0 auto'
           }}
         >
-          <div className="col-span-12 lg:col-span-7 flex flex-col justify-center " style={{ gap: '1.5rem', alignItems: 'flex-start' }}>
+          <div className="col-span-12 lg:col-span-7 flex flex-col justify-center gpu-boost" style={{ gap: '1.5rem', alignItems: 'flex-start' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
               <div className="inline-block animate-on-scroll">
                 <span
@@ -80,8 +93,9 @@ const HeroSection = () => {
                 </span>
               </div>
 
+
               <h1
-                className="font-bold tracking-tight "
+                className="font-bold tracking-tight gpu-boost"
                 style={{
                   fontFamily: "'TASA Explorer', sans-serif",
                   fontSize: 'clamp(3.5rem, 5.5vw, 5.5rem)',
@@ -95,8 +109,9 @@ const HeroSection = () => {
                 Experiences
               </h1>
 
+
               <p
-                className="text-white/70 leading-relaxed "
+                className="text-white/70 leading-relaxed"
                 style={{
                   fontFamily: "'Raleway', serif",
                   letterSpacing: '0.3px',
@@ -109,9 +124,10 @@ const HeroSection = () => {
               </p>
             </div>
 
+
             {/* CTA Buttons with navigation */}
             <div
-              className="flex flex-wrap "
+              className="flex flex-wrap"
               style={{
                 gap: '1rem',
                 paddingTop: '1rem'
@@ -119,7 +135,7 @@ const HeroSection = () => {
             >
               <button
                 onClick={() => scrollToSection('projects')}
-                className="relative text-black font-semibold rounded-sm overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="relative text-black font-semibold rounded-sm overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer gpu-boost"
                 style={{
                   padding: '0.875rem 1.75rem',
                   fontSize: '0.875rem',
@@ -131,9 +147,10 @@ const HeroSection = () => {
                 </span>
               </button>
 
+
               <button
                 onClick={() => scrollToSection('contact')}
-                className="border border-white/30 text-white font-semibold rounded-sm backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300 cursor-pointer"
+                className="border border-white/30 text-white font-semibold rounded-sm backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300 cursor-pointer gpu-boost"
                 style={{
                   padding: '0.875rem 1.75rem',
                   fontSize: '0.875rem'
@@ -146,9 +163,10 @@ const HeroSection = () => {
             </div>
           </div>
 
+
           {/* Bento Grid Cards */}
           <div
-            className="hidden lg:grid lg:col-span-5 grid-cols-2"
+            className="hidden lg:grid lg:col-span-5 grid-cols-2 gpu-boost"
             style={{
               gap: '1rem',
               gridAutoRows: 'minmax(8.25rem, auto)',
@@ -156,7 +174,7 @@ const HeroSection = () => {
             }}
           >
             <div
-              className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 group animate-on-scroll"
+              className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 group animate-on-scroll gpu-boost"
               style={{ padding: '1.25rem' }}
             >
               <div>
@@ -182,14 +200,16 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="col-span-1 row-span-2 overflow-hidden hover:border-white/20 transition-all duration-300 group relative animate-on-scroll">
-              <div className="absolute inset-0 from-black/80 via-black/20 to-transparent z-10"></div>
-              <img src={Logo} className='w-55' alt="Logo" loading="eager" />
+
+            <div className="col-span-1 row-span-2 overflow-hidden hover:border-white/20 transition-all duration-300 group relative animate-on-scroll gpu-boost">
+              <div className="absolute inset-0 from-black/80 via-black/20 to-transparent z-10 gpu-boost"></div>
+              <img src={Logo} className='w-55 gpu-boost' alt="Logo" loading="eager" />
               <div className="w-full h-full flex items-center justify-center"></div>
             </div>
 
+
             <div
-              className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 animate-on-scroll"
+              className="col-span-1 row-span-1 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-lg flex flex-col justify-between hover:border-white/20 transition-all duration-300 animate-on-scroll gpu-boost"
               style={{ padding: '1.25rem' }}
             >
               <div>
@@ -218,8 +238,9 @@ const HeroSection = () => {
         </div>
       </div>
 
+
       <div
-        className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce"
+        className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce gpu-boost"
         style={{
           bottom: '2rem',
           gap: '0.5rem'
@@ -240,8 +261,9 @@ const HeroSection = () => {
         ></div>
       </div>
 
+
       <div
-        className="absolute top-1/4 bg-white/5 rounded-full blur-[100px] pointer-events-none"
+        className="absolute top-1/4 bg-white/5 rounded-full blur-[100px] pointer-events-none gpu-boost"
         style={{
           right: '2.5rem',
           width: '18rem',
@@ -249,7 +271,7 @@ const HeroSection = () => {
         }}
       ></div>
       <div
-        className="absolute bottom-1/4 bg-white/[0.03] rounded-full blur-[120px] pointer-events-none"
+        className="absolute bottom-1/4 bg-white/[0.03] rounded-full blur-[120px] pointer-events-none gpu-boost"
         style={{
           left: '2.5rem',
           width: '24rem',
@@ -259,5 +281,6 @@ const HeroSection = () => {
     </section>
   );
 };
+
 
 export default HeroSection;
