@@ -30,7 +30,7 @@ const AboutSection = () => {
           >
             The Story Behind
             <br />
-            <span className="italic bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="italic text-white text-8xl">
               Solomen Design Studio
             </span>
           </h2>
@@ -108,8 +108,7 @@ const AboutSection = () => {
                 className="text-xl sm:text-2xl md:text-3xl text-white/90 leading-relaxed pl-6 sm:pl-8 italic"
                 style={{ fontFamily: "'Raleway', serif" }}
               >
-                Where creativity meets strategy, and pixels become powerful
-                stories.
+               Design That Speaks Volumes
               </p>
             </div>
 
