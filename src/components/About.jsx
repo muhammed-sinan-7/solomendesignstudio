@@ -25,15 +25,18 @@ const AboutSection = () => {
             </span>
           </div>
           <h2
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 px-4"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl mb-4 sm:mb-6 px-4"
             style={{ fontFamily: "'TASA Explorer', sans-serif" }}
           >
             The Story Behind
-            <br />
-            <span className="italic text-white text-8xl">
+            </h2>
+            {/* <br /> */}
+            <h2 className=" text-white sm:text-5xl md:text-7xl font-bold lg:text-7xl "
+            style={{fontFamily:'TASA Explorer'}}>
+              
               Solomen Design Studio
-            </span>
-          </h2>
+            </h2>
+          
         </div>
 
         {/* Main Content - Side by Side Magazine Layout */}
