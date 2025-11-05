@@ -25,7 +25,7 @@ const AboutSection = () => {
             </span>
           </div>
           <h2
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl mb-4 sm:mb-6 px-4"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 px-4"
             style={{ fontFamily: "'TASA Explorer', sans-serif" }}
           >
             The Story Behind
