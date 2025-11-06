@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import emailjs from "emailjs-com";
+import toast, { Toaster } from 'react-hot-toast';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,17 +11,15 @@ function Contact() {
     message: "",
   });
 
-  // Create refs for animated sections
   const headerRef = useRef(null);
   const contactInfoRef = useRef(null);
-  const formRef = useRef(null);
+  const formInViewRef = useRef(null);
+  const formElementRef = useRef(null);
 
-  // Trigger animations every time (once: false)
   const headerInView = useInView(headerRef, { once: false, amount: 0.3 });
   const contactInfoInView = useInView(contactInfoRef, { once: false, amount: 0.3 });
-  const formInView = useInView(formRef, { once: false, amount: 0.2 });
+  const formInView = useInView(formInViewRef, { once: false, amount: 0.2 });
 
-  // Animation variants
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
@@ -51,11 +51,127 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    
+    // Check if form ref is not null
+    if (!formElementRef.current) {
+      toast.error("Form reference error. Please try again.", {
+        duration: 4000,
+        position: 'top-center',
+        style: {
+          background: '#1c1c1c',
+          color: '#fff',
+          border: '1px solid #404040',
+          borderRadius: '12px',
+          padding: '16px',
+          fontFamily: "'Raleway', sans-serif",
+        },
+        iconTheme: {
+          primary: '#ff5459',
+          secondary: '#1c1c1c',
+        },
+      });
+      return;
+    }
+
+    // Show loading toast
+    const loadingToast = toast.loading('Sending your message...', {
+      style: {
+        background: '#1c1c1c',
+        color: '#fff',
+        border: '1px solid #404040',
+        borderRadius: '12px',
+        padding: '16px',
+        fontFamily: "'Raleway', sans-serif",
+      },
+    });
+
+    // Send email using EmailJS
+    emailjs.sendForm(
+      "service_tzbqtre", 
+      "template_f8o42i1", 
+      formElementRef.current,
+      "WhuqLJ_OkmC7BsdnE"
+    )
+    .then(
+      (result) => {
+        console.log("Email sent successfully!", result.text);
+        
+        // Dismiss loading toast and show success
+        toast.dismiss(loadingToast);
+        toast.success("Message sent successfully! I'll get back to you soon.", {
+          duration: 5000,
+          position: 'top-center',
+          style: {
+            background: '#1c1c1c',
+            color: '#fff',
+            border: '1px solid #404040',
+            borderRadius: '12px',
+            padding: '16px',
+            fontFamily: "'Raleway', sans-serif",
+          },
+          iconTheme: {
+            primary: '#32b8c6',
+            secondary: '#1c1c1c',
+          },
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      },
+      (error) => {
+        console.log("Failed to send email:", error.text);
+        
+        // Dismiss loading toast and show error
+        toast.dismiss(loadingToast);
+        toast.error(`Failed to send message: ${error.text}`, {
+          duration: 5000,
+          position: 'top-center',
+          style: {
+            background: '#1c1c1c',
+            color: '#fff',
+            border: '1px solid #404040',
+            borderRadius: '12px',
+            padding: '16px',
+            fontFamily: "'Raleway', sans-serif",
+          },
+          iconTheme: {
+            primary: '#ff5459',
+            secondary: '#1c1c1c',
+          },
+        });
+      }
+    );
   };
 
   return (
     <div>
+      {/* Toast Container - Add this at the top */}
+      <Toaster 
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        containerStyle={{
+          top: 20,
+        }}
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#1c1c1c',
+            color: '#fff',
+            border: '1px solid #404040',
+            borderRadius: '12px',
+            padding: '16px',
+            fontFamily: "'Raleway', sans-serif",
+            fontSize: '14px',
+          },
+        }}
+      />
+
       {/* CONTACT SECTION */}
       <section className="relative bg-black text-white py-20 sm:py-24 md:py-32 lg:py-40 overflow-hidden">
         {/* Subtle Background Pattern */}
@@ -174,11 +290,11 @@ function Contact() {
                           Phone
                         </p>
                         <a
-                          href="tel:+917567576495"
+                          href="tel:+971567576495"
                           className="text-white text-base sm:text-lg font-medium hover:text-neutral-300 transition-colors"
                           style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                         >
-                          +97 1567576495
+                          +971 567576495
                         </a>
                       </div>
                     </div>
@@ -270,7 +386,7 @@ function Contact() {
 
             {/* Right Side - Contact Form - Staggered Animation */}
             <motion.div
-              ref={formRef}
+              ref={formInViewRef}
               variants={staggerContainer}
               initial="hidden"
               animate={formInView ? "visible" : "hidden"}
@@ -283,7 +399,11 @@ function Contact() {
                 Send Me a Message
               </motion.h3>
 
-              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+              <form 
+                ref={formElementRef}
+                onSubmit={handleSubmit} 
+                className="space-y-5 sm:space-y-6"
+              >
                 
                 {/* Name */}
                 <motion.div variants={fadeUp}>

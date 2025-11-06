@@ -12,10 +12,12 @@
   "dependencies": {
     "@studio-freight/react-lenis": "^0.0.47",
     "@tailwindcss/vite": "^4.1.16",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.548.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.6.0",
     "react-intersection-observer": "^9.16.0",
     "tailwindcss": "^4.1.16"
   },
