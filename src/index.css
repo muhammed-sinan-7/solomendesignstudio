@@ -19,3 +19,19 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset scroll position for fixed navbar */
+section {
+  scroll-margin-top: 100px; /* Adjust based on your navbar height */
+}
+
+/* Optional: Improve scroll snap behavior */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

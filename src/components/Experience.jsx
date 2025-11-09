@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Helmet } from 'react-helmet-async';
 import { motion, useInView } from "framer-motion";
 
 function Experience() {
@@ -71,6 +72,200 @@ function Experience() {
 
   return (
     <div>
+      {/* SEO Meta Tags & Structured Data */}
+      <Helmet>
+        <title>Professional Experience - 10+ Years Graphic Design Journey | Solomen Design Studio</title>
+        <meta 
+          name="description" 
+          content="Explore 10+ years of professional graphic design experience across branding, UI/UX, and digital media. From Concetto Design to Exi Sharks Dubai - comprehensive portfolio journey." 
+        />
+        <meta 
+          name="keywords" 
+          content="graphic designer experience, professional journey, design career dubai, branding portfolio, UI UX designer career, work history design, graphic design expertise" 
+        />
+        <link rel="canonical" href="https://yourwebsite.com/experience" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="10+ Years Graphic Design Experience - Solomen Design Studio" />
+        <meta property="og:description" content="Professional design journey spanning branding, UI/UX, and digital media across multiple organizations" />
+        <meta property="og:url" content="https://yourwebsite.com/experience" />
+        <meta property="og:type" content="profile" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Professional Experience - Solomen Design Studio" />
+        <meta name="twitter:description" content="10+ years of graphic design excellence from India to Dubai" />
+        
+        {/* Person Schema with Work History */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Sulaiman Kuttasseri",
+            "jobTitle": "Graphic Designer",
+            "url": "https://yourwebsite.com",
+            "sameAs": [
+              "https://www.behance.net/SULAIMANKUTTASSERI",
+              "https://www.linkedin.com/in/sulaiman-kuttasseri/",
+              "https://www.instagram.com/sulaiman_kuttasseri/"
+            ],
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Exi Sharks",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Dubai",
+                "addressCountry": "UAE"
+              }
+            },
+            "hasOccupation": [
+              {
+                "@type": "Occupation",
+                "name": "Graphic Designer",
+                "occupationLocation": {
+                  "@type": "City",
+                  "name": "Dubai"
+                },
+                "skills": "Branding, UI/UX Design, Logo Design, Social Media Design, Print Design, Packaging Design, Photography"
+              }
+            ],
+            "alumniOf": [
+              {
+                "@type": "OrganizationRole",
+                "roleName": "Graphic Designer",
+                "startDate": "2025",
+                "organization": {
+                  "@type": "Organization",
+                  "name": "Exi Sharks",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Dubai",
+                    "addressCountry": "AE"
+                  }
+                },
+                "description": "Creating cutting-edge design solutions across branding, creative direction, and international projects"
+              },
+              {
+                "@type": "OrganizationRole",
+                "roleName": "Graphic Designer",
+                "startDate": "2020",
+                "endDate": "2025",
+                "organization": {
+                  "@type": "Organization",
+                  "name": "ECH DIGITAL",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "AE"
+                  }
+                },
+                "description": "Delivered comprehensive design solutions across branding, digital media, and photography for UAE-based clients"
+              },
+              {
+                "@type": "OrganizationRole",
+                "roleName": "Graphic Designer",
+                "startDate": "2018",
+                "endDate": "2020",
+                "organization": {
+                  "@type": "Organization",
+                  "name": "Deline Technologies Pvt Ltd",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Kakkanchery",
+                    "addressCountry": "IN"
+                  }
+                },
+                "description": "Specialized in UI/UX design for web and mobile applications, packaging, and print collateral projects"
+              },
+              {
+                "@type": "OrganizationRole",
+                "roleName": "Graphic Designer",
+                "startDate": "2016",
+                "endDate": "2018",
+                "organization": {
+                  "@type": "Organization",
+                  "name": "Shadow Advertising",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Manjeri",
+                    "addressCountry": "IN"
+                  }
+                },
+                "description": "Created advertising campaigns, social media designs, brochures, flyers, and catalogues for diverse industries"
+              },
+              {
+                "@type": "OrganizationRole",
+                "roleName": "Graphic Designer",
+                "startDate": "2015",
+                "endDate": "2016",
+                "organization": {
+                  "@type": "Organization",
+                  "name": "Concetto Design Co"
+                },
+                "description": "Developed foundational skills in brand identity, logo design, business cards, and print design"
+              }
+            ],
+            "knowsAbout": [
+              "Branding",
+              "Social Media Design",
+              "UI/UX Design",
+              "Logo Design",
+              "Brochure Design",
+              "Catalogue Design",
+              "Business Card Design",
+              "Packaging Design",
+              "Print Collaterals",
+              "Photography",
+              "Digital Media",
+              "Creative Direction",
+              "Brand Strategy"
+            ]
+          })}
+        </script>
+
+        {/* ProfilePage Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "dateCreated": "2025-11-09",
+            "dateModified": "2025-11-09",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Sulaiman Kuttasseri",
+              "alternateName": "Solomen Design Studio",
+              "description": "Professional graphic designer with 10+ years of experience in branding, UI/UX design, and digital media",
+              "jobTitle": "Graphic Designer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Exi Sharks"
+              }
+            }
+          })}
+        </script>
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://yourwebsite.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Experience",
+                "item": "https://yourwebsite.com/experience"
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+
       {/* EXPERIENCE SECTION - Professional Career Timeline */}
       <section className="relative bg-black text-white py-32 overflow-hidden">
         {/* Subtle Background Pattern */}
@@ -87,8 +282,8 @@ function Experience() {
 
         <div className="relative z-10 container mx-auto px-6 max-w-7xl">
           
-          {/* Header - Animated */}
-          <motion.div 
+          {/* Header - Animated - Semantic HTML */}
+          <motion.header 
             ref={headerRef}
             variants={fadeUp}
             initial="hidden"
@@ -103,7 +298,7 @@ function Experience() {
                 — Professional Journey —
               </span>
             </div>
-            <h2
+            <h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white"
               style={{ fontFamily: "'TASA Explorer', serif" }}
             >
@@ -112,7 +307,7 @@ function Experience() {
               <span className="bg-gradient-to-r from-neutral-200 via-white to-neutral-300 bg-clip-text text-transparent">
                 Design Excellence
               </span>
-            </h2>
+            </h1>
             <p
               className="text-xl text-neutral-400 leading-relaxed"
               style={{
@@ -122,17 +317,17 @@ function Experience() {
             >
               From branding to digital interfaces, my journey spans diverse design disciplines across multiple organizations, creating impactful visual solutions.
             </p>
-          </motion.div>
+          </motion.header>
 
           {/* Timeline Grid with Cards */}
-          <div className="relative">
+          <article className="relative">
             {/* Vertical Timeline Line - Hidden on mobile */}
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-neutral-800/50 via-neutral-700/50 to-neutral-800/50"></div>
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-neutral-800/50 via-neutral-700/50 to-neutral-800/50" aria-hidden="true"></div>
 
             <div className="space-y-16 lg:space-y-24">
               
               {/* Timeline Item 1 - Right Side */}
-              <motion.div 
+              <motion.section 
                 ref={item1Ref}
                 className="grid lg:grid-cols-2 gap-8 items-center"
               >
@@ -143,18 +338,19 @@ function Experience() {
                   className="lg:text-right lg:pr-12"
                 >
                   <div className="inline-block lg:float-right">
-                    <span
+                    <time
+                      dateTime="2015/2016"
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
                       style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                     >
                       2015 - 2016
-                    </span>
-                    <h3
+                    </time>
+                    <h2
                       className="text-3xl md:text-4xl font-bold mb-3 text-white"
                       style={{ fontFamily: "'TASA Explorer', serif" }}
                     >
                       Graphic Designer
-                    </h3>
+                    </h2>
                     <p
                       className="text-neutral-300 text-lg mb-4 font-medium"
                       style={{ fontFamily: "'Raleway', sans-serif" }}
@@ -168,7 +364,7 @@ function Experience() {
                         letterSpacing: "0.3px",
                       }}
                     >
-                      Launched my professional career focusing on brand identity and print design. Developed foundational skills in logo design, business cards, and marketing materials.
+                      Launched my professional career focusing on <strong>brand identity</strong> and <strong>print design</strong>. Developed foundational skills in logo design, business cards, and marketing materials.
                     </p>
                   </div>
                 </motion.div>
@@ -179,7 +375,7 @@ function Experience() {
                   className="lg:pl-12"
                 >
                   <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300" aria-hidden="true"></div>
                     <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
                       <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Branding</span>
@@ -190,10 +386,10 @@ function Experience() {
                     </div>
                   </div>
                 </motion.div>
-              </motion.div>
+              </motion.section>
 
               {/* Timeline Item 2 - Left Side */}
-              <motion.div 
+              <motion.section 
                 ref={item2Ref}
                 className="grid lg:grid-cols-2 gap-8 items-center"
               >
@@ -204,7 +400,7 @@ function Experience() {
                   className="lg:order-1 lg:pr-12 lg:flex lg:justify-end"
                 >
                   <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-700/30 to-neutral-800/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-700/30 to-neutral-800/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300" aria-hidden="true"></div>
                     <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
                       <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Social Media</span>
@@ -222,18 +418,19 @@ function Experience() {
                   animate={item2InView ? "visible" : "hidden"}
                   className="lg:order-2 lg:pl-12"
                 >
-                  <span
+                  <time
+                    dateTime="2016/2018"
                     className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
                     style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                   >
                     2016 - 2018
-                  </span>
-                  <h3
+                  </time>
+                  <h2
                     className="text-3xl md:text-4xl font-bold mb-3 text-white"
                     style={{ fontFamily: "'TASA Explorer', serif" }}
                   >
                     Graphic Designer
-                  </h3>
+                  </h2>
                   <p
                     className="text-neutral-300 text-lg mb-4 font-medium"
                     style={{ fontFamily: "'Raleway', sans-serif" }}
@@ -247,13 +444,13 @@ function Experience() {
                       letterSpacing: "0.3px",
                     }}
                   >
-                    Expanded expertise into advertising and social media design. Created compelling brochures, flyers, and catalogue designs for diverse clients across various industries.
+                    Expanded expertise into <strong>advertising</strong> and <strong>social media design</strong>. Created compelling brochures, flyers, and catalogue designs for diverse clients across various industries.
                   </p>
                 </motion.div>
-              </motion.div>
+              </motion.section>
 
               {/* Timeline Item 3 - Right Side */}
-              <motion.div 
+              <motion.section 
                 ref={item3Ref}
                 className="grid lg:grid-cols-2 gap-8 items-center"
               >
@@ -264,18 +461,19 @@ function Experience() {
                   className="lg:text-right lg:pr-12"
                 >
                   <div className="inline-block lg:float-right">
-                    <span
+                    <time
+                      dateTime="2018/2020"
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
                       style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                     >
                       2018 - 2020
-                    </span>
-                    <h3
+                    </time>
+                    <h2
                       className="text-3xl md:text-4xl font-bold mb-3 text-white"
                       style={{ fontFamily: "'TASA Explorer', serif" }}
                     >
                       Graphic Designer
-                    </h3>
+                    </h2>
                     <p
                       className="text-neutral-300 text-lg mb-4 font-medium"
                       style={{ fontFamily: "'Raleway', sans-serif" }}
@@ -289,7 +487,7 @@ function Experience() {
                         letterSpacing: "0.3px",
                       }}
                     >
-                      Transitioned into digital product design. Specialized in UI/UX design for web and mobile applications while continuing to deliver packaging and print collateral projects.
+                      Transitioned into <strong>digital product design</strong>. Specialized in <strong>UI/UX design</strong> for web and mobile applications while continuing to deliver packaging and print collateral projects.
                     </p>
                   </div>
                 </motion.div>
@@ -300,7 +498,7 @@ function Experience() {
                   className="lg:pl-12"
                 >
                   <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300" aria-hidden="true"></div>
                     <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
                       <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>UI/UX Design</span>
@@ -311,10 +509,10 @@ function Experience() {
                     </div>
                   </div>
                 </motion.div>
-              </motion.div>
+              </motion.section>
 
               {/* Timeline Item 4 - Left Side */}
-              <motion.div 
+              <motion.section 
                 ref={item4Ref}
                 className="grid lg:grid-cols-2 gap-8 items-center"
               >
@@ -325,7 +523,7 @@ function Experience() {
                   className="lg:order-1 lg:pr-12 lg:flex lg:justify-end"
                 >
                   <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-700/30 to-neutral-800/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-700/30 to-neutral-800/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300" aria-hidden="true"></div>
                     <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
                       <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Branding</span>
@@ -342,18 +540,19 @@ function Experience() {
                   animate={item4InView ? "visible" : "hidden"}
                   className="lg:order-2 lg:pl-12"
                 >
-                  <span
+                  <time
+                    dateTime="2020/2025"
                     className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
                     style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                   >
                     2020 - 2025
-                  </span>
-                  <h3
+                  </time>
+                  <h2
                     className="text-3xl md:text-4xl font-bold mb-3 text-white"
                     style={{ fontFamily: "'TASA Explorer', serif" }}
                   >
                     Graphic Designer
-                  </h3>
+                  </h2>
                   <p
                     className="text-neutral-300 text-lg mb-4 font-medium"
                     style={{ fontFamily: "'Raleway', sans-serif" }}
@@ -367,13 +566,13 @@ function Experience() {
                       letterSpacing: "0.3px",
                     }}
                   >
-                    Expanded internationally, working with UAE-based clients. Delivered comprehensive design solutions across branding, digital media, and photography for diverse markets.
+                    Expanded internationally, working with <strong>UAE-based clients</strong>. Delivered comprehensive design solutions across branding, digital media, and photography for diverse markets.
                   </p>
                 </motion.div>
-              </motion.div>
+              </motion.section>
 
               {/* Timeline Item 5 - Right Side (Current) */}
-              <motion.div 
+              <motion.section 
                 ref={item5Ref}
                 className="grid lg:grid-cols-2 gap-8 items-center"
               >
@@ -384,18 +583,19 @@ function Experience() {
                   className="lg:text-right lg:pr-12"
                 >
                   <div className="inline-block lg:float-right">
-                    <span
+                    <time
+                      dateTime="2025"
                       className="text-neutral-500 text-sm tracking-[0.2em] uppercase font-light mb-2 block"
                       style={{ fontFamily: "'TASA Explorer', sans-serif" }}
                     >
                       2025 - Present
-                    </span>
-                    <h3
+                    </time>
+                    <h2
                       className="text-3xl md:text-4xl font-bold mb-3 text-white"
                       style={{ fontFamily: "'TASA Explorer', serif" }}
                     >
                       Graphic Designer
-                    </h3>
+                    </h2>
                     <p
                       className="text-neutral-300 text-lg mb-4 font-medium"
                       style={{ fontFamily: "'Raleway', sans-serif" }}
@@ -409,7 +609,7 @@ function Experience() {
                         letterSpacing: "0.3px",
                       }}
                     >
-                      Currently creating cutting-edge design solutions in Dubai. Bringing together years of expertise across all design disciplines to deliver exceptional results for international clients.
+                      Currently creating cutting-edge design solutions in <strong>Dubai</strong>. Bringing together years of expertise across all design disciplines to deliver exceptional results for international clients.
                     </p>
                   </div>
                 </motion.div>
@@ -420,7 +620,7 @@ function Experience() {
                   className="lg:pl-12"
                 >
                   <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-br from-neutral-800/30 to-neutral-700/30 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300" aria-hidden="true"></div>
                     <div className="relative bg-gradient-to-br from-neutral-900/50 to-neutral-950/50 backdrop-blur-sm border border-neutral-800/50 rounded-xl p-6 hover:border-neutral-700/50 transition-all duration-300">
                       <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1 bg-neutral-800/50 border border-neutral-700/50 rounded-full text-neutral-300 text-xs font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Full Spectrum</span>
@@ -431,26 +631,26 @@ function Experience() {
                     </div>
                   </div>
                 </motion.div>
-              </motion.div>
+              </motion.section>
 
             </div>
-          </div>
+          </article>
 
           {/* Skills Overview Section - Animated */}
-          <motion.div 
+          <motion.aside 
             ref={skillsRef}
             variants={staggerContainer}
             initial="hidden"
             animate={skillsInView ? "visible" : "hidden"}
             className="mt-24 pt-12 border-t border-neutral-800/50"
           >
-            <motion.h3 
+            <motion.h2 
               variants={fadeUp}
               className="text-2xl md:text-3xl font-bold mb-8 text-white text-center"
               style={{ fontFamily: "'TASA Explorer', serif" }}
             >
               Design Expertise
-            </motion.h3>
+            </motion.h2>
             <motion.div 
               variants={fadeUp}
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
@@ -486,10 +686,10 @@ function Experience() {
                 <p className="text-neutral-300 text-sm font-medium" style={{ fontFamily: "'Raleway', sans-serif" }}>Photography</p>
               </div>
             </motion.div>
-          </motion.div>
+          </motion.aside>
 
           {/* Bottom CTA - Animated */}
-          <motion.div 
+          <motion.footer 
             ref={ctaRef}
             variants={fadeUp}
             initial="hidden"
@@ -508,6 +708,7 @@ function Experience() {
             <a
               href="#contact"
               className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-neutral-800 to-neutral-700 border-2 border-neutral-700 rounded-full text-white hover:border-neutral-600 hover:scale-105 transition-all duration-300 group"
+              aria-label="Contact Solomen Design Studio"
             >
               <span
                 className="text-lg font-semibold tracking-wide"
@@ -523,6 +724,7 @@ function Experience() {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -532,7 +734,7 @@ function Experience() {
                 />
               </svg>
             </a>
-          </motion.div>
+          </motion.footer>
 
         </div>
       </section>
