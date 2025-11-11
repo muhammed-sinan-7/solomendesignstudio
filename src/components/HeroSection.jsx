@@ -54,43 +54,43 @@ const HeroSection = () => {
       {/* Homepage SEO Meta Tags & Schema */}
       <Helmet>
         <title>Solomen Design Studio - Professional Graphic Designer in Dubai | Branding & UI/UX</title>
-        <meta 
-          name="description" 
-          content="Award-winning graphic designer in Dubai with 9+ years experience. Specializing in branding, UI/UX design, logo design, and digital media. 150+ projects completed." 
+        <meta
+          name="description"
+          content="Award-winning graphic designer in Dubai with 9+ years experience. Specializing in branding, UI/UX design, logo design, and digital media. 150+ projects completed."
         />
-        <meta 
-          name="keywords" 
-          content="graphic designer dubai, branding designer dubai, UI UX designer, logo designer dubai, solomen design studio, visual designer dubai, creative designer" 
+        <meta
+          name="keywords"
+          content="graphic designer dubai, branding designer dubai, UI UX designer, logo designer dubai, solomen design studio, visual designer dubai, creative designer"
         />
         <link rel="canonical" href="https://yourwebsite.com" />
-        
+
         {/* Open Graph Tags */}
         <meta property="og:title" content="Solomen Design Studio - Professional Graphic Designer Dubai" />
         <meta property="og:description" content="Crafting creative experiences through branding, UI/UX design, and visual storytelling. 9+ years | 150+ projects" />
         <meta property="og:url" content="https://yourwebsite.com" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://yourwebsite.com/og-image.jpg" />
-        
+
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Solomen Design Studio - Graphic Designer Dubai" />
         <meta name="twitter:description" content="Professional branding and UI/UX design services in Dubai" />
         <meta name="twitter:image" content="https://yourwebsite.com/og-image.jpg" />
-        
+
         {/* WebPage Schema */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "Solomen Design Studio - Home",
+            "@type": "Organization",
+            "name": "Solomen Design Studio ",
             "description": "Professional graphic designer specializing in branding, UI/UX design, and visual storytelling in Dubai",
-            "url": "https://yourwebsite.com",
+            "url": "https://solomendesigns.com",
             "mainEntity": {
               "@type": "Person",
               "name": "Sulaiman Kuttasseri",
               "alternateName": "Solomen Design Studio",
-              "url": "https://yourwebsite.com",
-              "image": "https://yourwebsite.com/profile.jpg",
+              "url": "https://solomendesigns.com",
+              "image": "https://solomendesigns.com/profile.jpg",
               "jobTitle": "Graphic Designer",
               "description": "Visual storyteller and graphic designer with 9+ years of experience crafting creative experiences",
               "worksFor": {
@@ -158,14 +158,14 @@ const HeroSection = () => {
         </script>
       </Helmet>
 
-      <section 
-        className="relative bg-black text-white overflow-hidden gpu-boost" 
+      <section
+        className="relative bg-black text-white overflow-hidden gpu-boost"
         style={{
           minHeight: '100vh',
           paddingTop: '8rem',
           display: 'flex',
           flexDirection: 'column'
-        }} 
+        }}
         id="home"
         itemScope
         itemType="https://schema.org/WebPageElement"
@@ -232,7 +232,7 @@ const HeroSection = () => {
               </div>
 
               {/* CTA Buttons with navigation */}
-              <nav 
+              <nav
                 className="flex flex-wrap"
                 style={{
                   gap: '1rem',
@@ -311,10 +311,10 @@ const HeroSection = () => {
 
               <figure className="col-span-1 row-span-2 overflow-hidden hover:border-white/20 transition-all duration-300 group relative animate-on-scroll gpu-boost">
                 <div className="absolute inset-0 from-black/80 via-black/20 to-transparent z-10 gpu-boost" aria-hidden="true"></div>
-                <img 
-                  src={Logo} 
-                  className='w-55 gpu-boost' 
-                  alt="Solomen Design Studio logo - Professional graphic design services in Dubai" 
+                <img
+                  src={Logo}
+                  className='w-55 gpu-boost'
+                  alt="Solomen Design Studio logo - Professional graphic design services in Dubai"
                   loading="eager"
                   width="220"
                   height="220"
